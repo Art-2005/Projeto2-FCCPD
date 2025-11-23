@@ -7,18 +7,14 @@ A solução utiliza um **servidor Flask** e um **cliente curl** para demonstrar 
 
 ## Arquitetura
 
-A solução é composta por dois containers:
+A solução é composta por dois containers feitos nas pastas:
 
 ### **1. Servidor (Flask)**
+
 app.py: Executa a aplicação Flask na porta **8080** e responde requisições HTTP GET em `/`
-Dockerfile: Imagem construída localmente com um Dockerfile simples
+
+Dockerfile: Constroi a imagem localmente, instala as requisições do requirements.txt e por no fim copia o codigo e executa o comando python app.py
 
 ### **2. Cliente (curl)**
-- Container minimalista baseado em `curlimages/curl`
-- Executa um loop infinito chamando `http://server:8080` a cada 5 segundos
-- Mostra no terminal as respostas recebidas do servidor
 
-### **3. Rede Docker**
-- Uma rede do tipo `bridge` chamada **minha-rede**
-- Ambos os containers estão conectados a essa rede
-- Permite comunicação pelo nome DNS do container (ex: `server`)
+Dockerfile: Executa um loop infinito chamando `http://server:8080` a cada 5 segundos e mostra no terminal as respostas recebidas do servidor
