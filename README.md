@@ -19,4 +19,18 @@ A solução é composta por dois containers feitos nas pastas:
 
 `Dockerfile`: Executa um loop infinito chamando `http://server:8080` a cada 5 segundos e mostra no terminal as respostas recebidas do servidor
 
-## 
+## Execução do código
+
+1- Crie a rede Docker: `docker network create minha-rede`
+
+2- Acesse `cd Desafio-1/Servidor` e dê build na imagem do servidor: `docker build -t meu-servidor .`
+
+3- Acesse `cd Desafio-1/Cliente` e dê build na imagem do cliente: `docker build -t meu-cliente .`
+
+4- Execute o container do servidor: `docker run -d --name server --network minha-rede -p 8080:8080 meu-servidor`
+
+5- Execute o container do cliente: `docker run -d --name client --network minha-rede meu-cliente`
+
+6- Ver os logs do cliente: `docker logs -f client`
+
+7- Ver os logs do servidor: `docker logs -f server`
