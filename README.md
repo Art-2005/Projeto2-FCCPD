@@ -1,4 +1,4 @@
-Projeto2-FCCPD
+# Projeto2-FCCPD
 
 # Desafio 1 
 
@@ -34,5 +34,6 @@ A solução é composta por dois containers feitos nas pastas:
 6- Ver os logs do cliente: `docker logs -f client`
 
 7- Ver os logs do servidor: `docker logs -f server`
+
 
 # Desafio 2
