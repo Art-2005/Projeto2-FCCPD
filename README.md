@@ -3,16 +3,15 @@
 # Desafio 1 
 
 Este desafio consiste em criar dois containers Docker que se comunicam através de uma rede customizada.  
-A solução implementada utiliza um **servidor Flask** e um **cliente curl** para demonstrar a comunicação contínua entre os serviços.
+A solução utiliza um **servidor Flask** e um **cliente curl** para demonstrar a comunicação contínua entre os serviços.
 
-## Arquitetura da Solução
+## Arquitetura
 
 A solução é composta por dois containers:
 
 ### **1. Servidor (Flask)**
-- Executa uma aplicação Flask na porta **8080**
-- Responde requisições HTTP GET em `/`
-- Imagem construída localmente com um Dockerfile simples
+app.py: Executa a aplicação Flask na porta **8080** e responde requisições HTTP GET em `/`
+Dockerfile: Imagem construída localmente com um Dockerfile simples
 
 ### **2. Cliente (curl)**
 - Container minimalista baseado em `curlimages/curl`
