@@ -13,7 +13,7 @@ A solução é composta por dois containers feitos nas pastas:
 
 `app.py`: Executa a aplicação Flask na porta **8080** e responde requisições HTTP GET
 
-`Dockerfile`: Constroi a imagem localmente, instala as requisições do requirements.txt e por no fim copia o codigo e executa o comando python app.py
+`Dockerfile`: Constroi a imagem localmente, instala as requisições do requirements.txt e por no fim copia o codigo e executa o comando `python app.py`
 
 ### **2. Cliente (curl)**
 
