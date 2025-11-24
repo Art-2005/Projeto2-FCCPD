@@ -38,8 +38,8 @@ A solução é composta por dois containers feitos nas pastas:
 
 # Desafio 2
 
-Este desafio monstra como dados podem persistir mesmo após a remoção de um container Docker, utilizando **volumes**.  
-Foi utilizado o banco de dados **PostgreSQL**, armazenando os dados fora do container.
+Este desafio monstra como dados podem persistir mesmo após a remoção de um container Docker, 
+utilizando **volumes**. Foi utilizado o banco de dados **PostgreSQL**, armazenando os dados fora do container.
 
 ## Arquitetura
 
