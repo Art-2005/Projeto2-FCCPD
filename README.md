@@ -38,10 +38,30 @@ A solução é composta por dois containers feitos nas pastas:
 
 # Desafio 2
 
+Este desafio monstra como dados podem persistir mesmo após a remoção de um container Docker, utilizando **volumes**.  
+Foi utilizado o banco de dados **PostgreSQL**, armazenando os dados fora do container.
+
 ## Arquitetura
+
+`docker-compose.yml`: Cria um container postgreSQL configurado, um volume persistente para armazenar os dados e uma rede docker
 
 ## Execução do código
 
+1- Suba o container: `docker-compose up -d`
+
+2- Tenha o PostgreSQL e entre nele: `docker exec -it meu_postgres psql -U admin -d exemplo_db`
+
+3- No PostgreSQL crie a tabela e insira os dados: 
+
+```bash
+CREATE TABLE usuarios (
+    id SERIAL PRIMARY KEY,
+    nome TEXT
+);
+
+INSERT INTO usuarios (nome) VALUES ('Arthur'), ('Maria'), ('João');
+```
+4-
 
 # Desafio 3
 
