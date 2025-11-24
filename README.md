@@ -37,3 +37,28 @@ A solução é composta por dois containers feitos nas pastas:
 
 
 # Desafio 2
+
+## Arquitetura
+
+## Execução do código
+
+
+# Desafio 3
+
+## Arquitetura
+
+## Execução do código
+
+
+# Desafio 4
+
+## Arquitetura
+
+## Execução do código
+
+
+# Desafio 5
+
+## Arquitetura
+
+## Execução do código
