@@ -51,7 +51,7 @@ utilizando **volumes**. Foi utilizado o banco de dados **PostgreSQL**, armazenan
 
 2- Tenha o PostgreSQL e entre nele: `docker exec -it meu_postgres psql -U admin -d exemplo_db`
 
-3- No PostgreSQL crie a tabela e insira os dados: 
+3- No PostgreSQL vai aparecer a linha `exemplo_db=#`, nela crie a tabela, insira os dados e verifique se eles estão salvos: 
 
 ```bash
 CREATE TABLE usuarios (
@@ -61,7 +61,23 @@ CREATE TABLE usuarios (
 
 INSERT INTO usuarios (nome) VALUES ('Arthur'), ('Maria'), ('João');
 ```
-4-
+
+```bash
+SELECT * FROM usuarios;
+```
+
+4- Abra outro terminal e derrube o container: `docker-compose down`
+
+5- Depois, suba ele novamente: `docker-compose up -d`
+
+6- Entre no banco novamente: `docker exec -it meu_postgres psql -U admin -d exemplo_db`
+
+7- Na linha `exemplo_db=#`, veja os dados que persistiram:
+
+```bash
+SELECT * FROM usuarios;
+```
+
 
 # Desafio 3
 
