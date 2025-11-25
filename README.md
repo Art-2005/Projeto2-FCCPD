@@ -13,7 +13,9 @@ A solução é composta por dois containers feitos nas pastas:
 
 `app.py`: Executa a aplicação Flask na porta **8080** e responde requisições HTTP GET.
 
-`Dockerfile`: Constroi a imagem localmente, instala as requisições do requirements.txt e por no fim copia o codigo e executa o comando `python app.py`.
+`Dockerfile`: Constroi a imagem localmente, instala as requisições do `requirements.txt` e por fim copia o codigo e executa o comando `python app.py`.
+
+`requirements.txt`: Lista o que vai ser instalado no conteiner, que é o `Flask==3.0.0`.
 
 ### **Cliente (curl)**
 
@@ -92,13 +94,13 @@ Consiste de uma pasta chamada **Web** e um arquivo docker-compose.yml:
 
 `app.py`: Executa a aplicação Flask que conecta no PostgreSQL e no Redis, depois testa os dois quando `http://localhost:5000` é acessado e mostra na tela a menssagem "Flask OK | Redis: pong | Postgres: mensagem salva!".
 
-`Dockerfile`:
+`Dockerfile`: Cria a imagem Docker do serviço Flask, copia o `requirements.txt` para dentro do container e por último copia o codigo e executa o comando `python app.py`.
 
-`requirements.txt`:
+`requirements.txt`: Lista o que vai ser instalado no conteiner, que é o `Flask==3.0.0`, o `psycopg2-binary` e o `redis`.
 
 ### **docker-compose.yml**
 
-
+O `docker-compose.yml` organiza os serviços Flask (web), PostgreSQL (db) e Redis (cache) e configura suas dependências, ambiente e rede interna para que se comuniquem entre si.
 
 ## Execução do código
 
