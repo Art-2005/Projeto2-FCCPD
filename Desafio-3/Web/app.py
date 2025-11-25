@@ -11,7 +11,6 @@ db_user = os.getenv("DB_USER")
 db_pass = os.getenv("DB_PASSWORD")
 cache_host = os.getenv("CACHE_HOST")
 
-# Conexão PostgreSQL
 conn = psycopg2.connect(
     host=db_host,
     database=db_name,
@@ -22,16 +21,14 @@ cur = conn.cursor()
 cur.execute("CREATE TABLE IF NOT EXISTS mensagens (id SERIAL PRIMARY KEY, texto TEXT);")
 conn.commit()
 
-# Conexão Redis
 cache = redis.Redis(host=cache_host, port=6379, db=0)
 
 @app.route("/")
 def home():
-    # Testa Redis
+   
     cache.set("ping", "pong")
     pong = cache.get("ping").decode()
 
-    # Testa Postgres
     cur.execute("INSERT INTO mensagens (texto) VALUES ('Olá banco!')")
     conn.commit()
 
