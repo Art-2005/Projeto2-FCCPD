@@ -81,6 +81,9 @@ SELECT * FROM usuarios;
 
 # Desafio 3
 
+Este desafio demonstra como organizar três serviços dependentes usando Docker Compose, **web** é a aplicação Flask em Python,
+**db** é banco de dados PostgreSQL e **cache** que é o servidor Redis. Essa solução foi construída seguindo princípios de microsserviços em que cada componente tem responsabilidade única, é isolado e comunicam-se via rede interna criada automaticamente pelo Docker Compose.
+
 ## Arquitetura
 
 ## Execução do código
