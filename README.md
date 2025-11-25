@@ -9,15 +9,15 @@ A solução utiliza um **servidor Flask** e um **cliente curl** para demonstrar 
 
 A solução é composta por dois containers feitos nas pastas:
 
-### **1. Servidor (Flask)**
+### **Servidor (Flask)**
 
-`app.py`: Executa a aplicação Flask na porta **8080** e responde requisições HTTP GET
+`app.py`: Executa a aplicação Flask na porta **8080** e responde requisições HTTP GET.
 
-`Dockerfile`: Constroi a imagem localmente, instala as requisições do requirements.txt e por no fim copia o codigo e executa o comando `python app.py`
+`Dockerfile`: Constroi a imagem localmente, instala as requisições do requirements.txt e por no fim copia o codigo e executa o comando `python app.py`.
 
-### **2. Cliente (curl)**
+### **Cliente (curl)**
 
-`Dockerfile`: Executa um loop infinito chamando `http://server:8080` a cada 5 segundos e mostra no terminal as respostas recebidas do servidor
+`Dockerfile`: Executa um loop infinito chamando `http://server:8080` a cada 5 segundos e mostra no terminal as respostas recebidas do servidor.
 
 ## Execução do código
 
@@ -43,7 +43,7 @@ utilizando **volumes**. Foi utilizado o banco de dados **PostgreSQL**, armazenan
 
 ## Arquitetura
 
-`docker-compose.yml`: Cria um container postgreSQL configurado, um volume persistente para armazenar os dados e uma rede docker
+`docker-compose.yml`: Cria um container postgreSQL configurado, um volume persistente para armazenar os dados e uma rede docker.
 
 ## Execução do código
 
@@ -85,6 +85,20 @@ Este desafio demonstra como organizar três serviços dependentes usando Docker 
 **db** é banco de dados PostgreSQL e **cache** que é o servidor Redis. Essa solução foi construída seguindo princípios de microsserviços em que cada componente tem responsabilidade única, é isolado e comunicam-se via rede interna criada automaticamente pelo Docker Compose.
 
 ## Arquitetura
+
+Consiste de uma pasta chamada **Web** e um arquivo docker-compose.yml:
+
+### **Web**
+
+`app.py`: Executa a aplicação Flask que conecta no PostgreSQL e no Redis, depois testa os dois quando `http://localhost:5000` é acessado e mostra na tela a menssagem "Flask OK | Redis: pong | Postgres: mensagem salva!".
+
+`Dockerfile`:
+
+`requirements.txt`:
+
+### **docker-compose.yml**
+
+
 
 ## Execução do código
 

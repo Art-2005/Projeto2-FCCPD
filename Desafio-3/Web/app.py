@@ -32,7 +32,7 @@ def home():
     cur.execute("INSERT INTO mensagens (texto) VALUES ('Olá banco!')")
     conn.commit()
 
-    return f"Flask OK → Redis: {pong} | Postgres: mensagem salva!"
+    return f"Flask OK | Redis: {pong} | Postgres: mensagem salva!"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
