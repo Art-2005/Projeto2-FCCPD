@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  web:
+    build: ./web
+    container_name: web-service
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_HOST=db
+      - DB_NAME=appdb
+      - DB_USER=user
+      - DB_PASSWORD=senha123
+      - CACHE_HOST=cache
+    depends_on:
+      - db
+      - cache
+
+  db:
+    image: postgres:15
+    container_name: db-service
+    environment:
+      - POSTGRES_DB=appdb
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=senha123
+    ports:
+      - "5432:5432"
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+
+  cache:
+    image: redis:alpine
+    container_name: cache-service
+    ports:
+      - "6379:6379"
+
+volumes:
+  dbdata:
