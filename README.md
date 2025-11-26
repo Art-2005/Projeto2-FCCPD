@@ -84,7 +84,7 @@ SELECT * FROM usuarios;
 # Desafio 3
 
 Este desafio demonstra como organizar três serviços dependentes usando Docker Compose, **web** é a aplicação Flask em Python,
-**db** é banco de dados PostgreSQL e **cache** que é o servidor Redis. Essa solução foi construída seguindo princípios de microsserviços em que cada componente tem responsabilidade única, é isolado e comunicam-se via rede interna criada automaticamente pelo Docker Compose.
+**db** é banco de dados PostgreSQL e **cache** que é o servidor Redis. Essa solução comunicam-se via rede interna criada automaticamente pelo Docker Compose.
 
 ## Arquitetura
 
@@ -92,7 +92,7 @@ Consiste de uma pasta chamada **Web** e um arquivo docker-compose.yml:
 
 ### **Web**
 
-`app.py`: Executa a aplicação Flask que conecta no PostgreSQL e no Redis, depois testa os dois quando `http://localhost:5000` é acessado e mostra na tela a menssagem "Flask OK | Redis: pong | Postgres: mensagem salva!".
+`app.py`: Executa a aplicação Flask que conecta no PostgreSQL e no Redis para depois testar os dois, e quando `http://localhost:5000` é acessado e mostra na tela a menssagem "Flask OK | Redis: pong | Postgres: mensagem salva!".
 
 `Dockerfile`: Cria a imagem Docker do serviço Flask, copia o `requirements.txt` para dentro do container e por último copia o codigo e executa o comando `python app.py`.
 
@@ -103,6 +103,26 @@ Consiste de uma pasta chamada **Web** e um arquivo docker-compose.yml:
 O `docker-compose.yml` organiza os serviços Flask (web), PostgreSQL (db) e Redis (cache) e configura suas dependências, ambiente e rede interna para que se comuniquem entre si.
 
 ## Execução do código
+
+1- Suba o container: `docker-compose up -d`
+
+2- Acesse o localhost:5000 para verificar se a menssagem "Flask OK | Redis: pong | Postgres: mensagem salva!" aparece: `http://localhost:5000` 
+
+3- Acesse o banco de dados: `docker exec -it db-service psql -U user -d appdb`
+
+4- Verifique se no banco de dados a tabela "menssagens" existe digitando na linha `appdb=#`:
+
+```bash
+\d mensagens;
+```
+
+6- Verifique se o banco está salvando a menssagem "Olá banco!" digitando na linha `appdb=#`:
+
+```bash
+SELECT * FROM mensagens;
+```
+
+7- Verifique se o Redis está respondendo com a menssagem "PONG": `docker exec -it cache-service redis-cli ping`
 
 
 # Desafio 4
