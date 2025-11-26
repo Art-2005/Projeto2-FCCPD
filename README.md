@@ -122,7 +122,7 @@ O `docker-compose.yml` organiza os serviços Flask (web), PostgreSQL (db) e Redi
 SELECT * FROM mensagens;
 ```
 
-7- Verifique se o Redis está respondendo com a menssagem "PONG": `docker exec -it cache-service redis-cli ping`
+7- Em outro terminal, verifique se o Redis está respondendo com a menssagem "PONG": `docker exec -it cache-service redis-cli ping`
 
 
 # Desafio 4
