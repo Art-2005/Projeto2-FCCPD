@@ -127,7 +127,15 @@ SELECT * FROM mensagens;
 
 # Desafio 4
 
+Este desafio cria dois microsserviços independentes, **Servico-a** , que expõe uma API HTTP que retorna uma lista de usuários em JSON (/users) e **Servico-b**,que consulta **Servico-a** via HTTP, processa e combina dados e expõe um endpoint (/report) que apresenta as informações. Cada serviço tem seu próprio Dockerfile e roda em um container isolado. A comunicação entre serviços é direta via HTTP usando os nomes dos serviços como hostnames.
+
 ## Arquitetura
+
+A solução é composta pelas pastas:
+
+### **Servico-a**
+
+### **Servico-b**
 
 ## Execução do código
 
