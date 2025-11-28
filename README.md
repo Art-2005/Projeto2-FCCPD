@@ -151,7 +151,7 @@ A solução é composta pelas pastas **Servico-a**, **Servico-b** e o arquivo **
 
 ### **docker-compose.yml**
 
-
+O `docker-compose.yml` cria dois microsserviços, sobe cada um em seu próprio container, expõe suas portas, configura o `Servico-b` para chamar o `Servico-a` via variável de ambiente e faz com que o `Servico-a` suba primeiro.
 
 ## Execução do código
 
