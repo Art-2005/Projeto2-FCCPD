@@ -7,7 +7,7 @@ A solução utiliza um **servidor Flask** e um **cliente curl** para demonstrar 
 
 ## Arquitetura
 
-A solução é composta por dois containers feitos nas pastas:
+A solução é composta por dois containers feitos nas pastas **Servidor** e **Cliente**:
 
 ### **Servidor (Flask)**
 
@@ -131,11 +131,27 @@ Este desafio cria dois microsserviços independentes, **Servico-a** , que expõe
 
 ## Arquitetura
 
-A solução é composta pelas pastas:
+A solução é composta pelas pastas **Servico-a**, **Servico-b** e o arquivo **docker-compose.yml**:
 
 ### **Servico-a**
 
+`app.py`: Executa um microsserviço usando Flask que retorna uma lista de usuários em formato JSON quando alguém acessa o endpoint `http://localhost:5001/users`.
+
+`Dockerfile`: Cria a imagem Docker, copia o `requirements.txt` para dentro do container, diz ao Docker que o container usa a porta 5001 e por último copia o codigo e executa o comando `python app.py`.
+
+`requirements.txt`: Lista o que vai ser instalado no conteiner, que é o `Flask==3.0.0`.
+
 ### **Servico-b**
+
+`app.py`: Executa um microsserviço em Flask que faz uma requisição HTTP ao outro microsserviço criado, recebe a lista de usuários e gera um relatório em texto em `http://localhost:5002/report`.
+
+`Dockerfile`:  Cria a imagem Docker, copia o `requirements.txt` para dentro do container, diz ao Docker que o container usa a porta 5002 e por último copia o codigo e executa o comando `python app.py`.
+
+`requirements.txt`: Lista o que vai ser instalado no conteiner, que é o `Flask==3.0.0` e o `requests`.
+
+### **docker-compose.yml**
+
+
 
 ## Execução do código
 
