@@ -1,0 +1,18 @@
+services:
+  servico-a:
+    build: ./Servico-a
+    image: servico-a-img
+    container_name: servico-a
+    ports:
+      - "5001:5001"
+
+  servico-b:
+    build: ./Servico-b
+    image: servico-b-img
+    container_name: servico-b
+    ports:
+      - "5002:5002"
+    environment:
+      - SERVICE_A_URL=http://servico-a:5001
+    depends_on:
+      - servico-a
