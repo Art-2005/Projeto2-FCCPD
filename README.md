@@ -27,15 +27,15 @@ A solução é composta por dois containers feitos nas pastas **Servidor** e **C
 
 2- Acesse `cd Desafio-1/Servidor` e dê build na imagem do servidor: `docker build -t meu-servidor .`
 
-3- Acesse `cd Desafio-1/Cliente` e dê build na imagem do cliente: `docker build -t meu-cliente .`
+3- Execute o container do servidor: `docker run -d --name server --network minha-rede -p 8080:8080 meu-servidor`
 
-4- Execute o container do servidor: `docker run -d --name server --network minha-rede -p 8080:8080 meu-servidor`
+4- Ver os logs do servidor: `docker logs -f server`
 
-5- Execute o container do cliente: `docker run -d --name client --network minha-rede meu-cliente`
+5- Acesse `cd Desafio-1/Cliente` e dê build na imagem do cliente: `docker build -t meu-cliente .`
 
-6- Ver os logs do cliente: `docker logs -f client`
+6- Execute o container do cliente: `docker run -d --name client --network minha-rede meu-cliente`
 
-7- Ver os logs do servidor: `docker logs -f server`
+7- Ver os logs do cliente: `docker logs -f client`
 
 
 # Desafio 2
@@ -154,6 +154,13 @@ A solução é composta pelas pastas **Servico-a**, **Servico-b** e o arquivo **
 O `docker-compose.yml` cria dois microsserviços, sobe cada um em seu próprio container, expõe suas portas, configura o `Servico-b` para chamar o `Servico-a` via variável de ambiente e faz com que o `Servico-a` suba primeiro.
 
 ## Execução do código
+
+1- Suba o container: `docker-compose up -d`
+
+2- Acesse o localhost:5001/users para ver se aparece "[{"active_since":"2021-04-10","id":1,"name":"Ana"},{"active_since":"2022-01-15","id":2,"name":"Bruno"},{"active_since":"2020-09-03","id":3,"name":"Carla"}]" na tela: `http://localhost:5001/users`
+
+3- Acesse o localhost:5002  para ver se aparece "Usuário Ana — ativo desde 2021-04-10", "Usuário Bruno — ativo desde 2022-01-15" e
+"Usuário Carla — ativo desde 2020-09-03" na tela: `http://localhost:5002/report`
 
 
 # Desafio 5
