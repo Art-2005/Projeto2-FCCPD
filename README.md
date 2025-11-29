@@ -165,6 +165,44 @@ O `docker-compose.yml` cria dois microsserviços, sobe cada um em seu próprio c
 
 # Desafio 5
 
+Este desafio cria três containers, dois microsserviços, um que fornece usuários e outro que fornece pedidos, e um API Gateway que expõe os endpoints /users e /orders, encaminhando internamente as requisições para cada serviço através da rede Docker.
+
 ## Arquitetura
 
+A solução é composta pelas pastas **geteway**, **Servico-users**, **Servico-orders** e o arquivo **docker-compose.yml**:
+
+### **geteway**
+
+`app.py`: 
+
+`Dockerfile`:  
+
+`requirements.txt`: Lista o que vai ser instalado no conteiner, que é o `Flask==3.0.0` e o `requests`.
+
+### **Servico-users**
+
+`app.py`: 
+
+`Dockerfile`:  
+
+`requirements.txt`: Lista o que vai ser instalado no conteiner, que é o `Flask==3.0.0`.
+
+### **Servico-orders**
+
+`app.py`: 
+
+`Dockerfile`:  
+
+`requirements.txt`: Lista o que vai ser instalado no conteiner, que é o `Flask==3.0.0`.
+
+### **docker-compose.yml**
+
+
+
 ## Execução do código
+
+1-
+
+2-
+
+3-
