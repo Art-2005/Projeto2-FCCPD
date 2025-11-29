@@ -173,25 +173,25 @@ A solução é composta pelas pastas **geteway**, **Servico-users**, **Servico-o
 
 ### **geteway**
 
-`app.py`: 
+`app.py`: Cria um API Gateway em Flask que roda na porta 3000, expõe os endpoints /users e /orders, recebe uma requisição e redireciona internamente para os microsserviços corretos usando requests e devolve a resposta para o cliente.
 
-`Dockerfile`:  
+`Dockerfile`: Cria a imagem Docker, copia o `requirements.txt` para dentro do container, diz ao Docker que o container usa a porta 3000 e por último copia o codigo e executa o comando `python app.py`.
 
 `requirements.txt`: Lista o que vai ser instalado no conteiner, que é o `Flask==3.0.0` e o `requests`.
 
 ### **Servico-users**
 
-`app.py`: 
+`app.py`: Cria um microsserviço Flask que expõe o endpoint /users e retorna uma lista fixa de usuários em formato JSON, rodando na porta 5001.
 
-`Dockerfile`:  
+`Dockerfile`: Cria a imagem Docker, copia o `requirements.txt` para dentro do container, diz ao Docker que o container usa a porta 5001 e por último copia o codigo e executa o comando `python app.py`.
 
 `requirements.txt`: Lista o que vai ser instalado no conteiner, que é o `Flask==3.0.0`.
 
 ### **Servico-orders**
 
-`app.py`: 
+`app.py`: Cria um microsserviço Flask que expõe o endpoint /orders e retorna uma lista fixa de pedidos em formato JSON, rodando na porta 5002.
 
-`Dockerfile`:  
+`Dockerfile`: Cria a imagem Docker, copia o `requirements.txt` para dentro do container, diz ao Docker que o container usa a porta 5002 e por último copia o codigo e executa o comando `python app.py`.
 
 `requirements.txt`: Lista o que vai ser instalado no conteiner, que é o `Flask==3.0.0`.
 
