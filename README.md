@@ -197,12 +197,12 @@ A solução é composta pelas pastas **geteway**, **Servico-users**, **Servico-o
 
 ### **docker-compose.yml**
 
-
+O `docker-compose.yml` cria três containers no Docker Compose, dois microsserviços (**service-users** e **service-orders**) e um API Gateway configurando portas, dependências e variáveis de ambiente para que o gateway consiga chamar os outros serviços pela rede interna.
 
 ## Execução do código
 
-1-
+1- Suba o container: `docker-compose up -d`
 
-2-
+2- Acesse o localhost:3000/users para ver se aparece "[{"id":1,"nome":"Ana"},{"id":2,"nome":"Bruno"},{"id":3,"nome":"Carla"}]" na tela: `http://localhost:3000/users`
 
-3-
+3- Acesse o localhost:3000/users para ver se aparece "[{"order_id":101,"total":99.9,"user_id":1},{"order_id":102,"total":149.5,"user_id":2},{"order_id":103,"total":59.99,"user_id":1}]" na tela: `http://localhost:3000/orders`
