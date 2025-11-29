@@ -1,0 +1,24 @@
+services:
+  service-users:
+    build: ./Servico-users
+    container_name: service-users
+    ports:
+      - "5001:5001"
+
+  service-orders:
+    build: ./Servico-orders
+    container_name: service-orders
+    ports:
+      - "5002:5002"
+
+  gateway:
+    build: ./gateway
+    container_name: api-gateway
+    ports:
+      - "3000:3000"
+    depends_on:
+      - service-users
+      - service-orders
+    environment:
+      USERS_URL: http://service-users:5001
+      ORDERS_URL: http://service-orders:5002
